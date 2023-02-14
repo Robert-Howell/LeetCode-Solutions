@@ -6,4 +6,5 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
     if diff in hashdict:
       return [hashdict[diff], num]
     hashdict[num] = index
+    
   return 
