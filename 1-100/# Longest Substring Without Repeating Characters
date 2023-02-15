@@ -1,0 +1,15 @@
+def lengthOfLongestSubstring(self, s: str) -> int:
+  max_len = len(set(s))
+  l, r = 0, max_len
+
+  while r > l:
+      sub_set = set(s[l:r])
+      if len(sub_set) == len(s[l:r]):
+          return len(sub_set)
+      else:
+          l += 1
+          r += 1
+          if r > len(s):
+              r = r - (l +1)
+              l = 0
+  return 0
