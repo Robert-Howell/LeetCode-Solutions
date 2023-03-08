@@ -1,0 +1,16 @@
+def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        maxb = max(piles)
+        minb = 1
+        final = maxb
+
+        while minb <= maxb:
+            current = (maxb + minb) // 2
+            hours = 0
+            for i in piles:
+                hours += math.ceil(i/current)
+            if hours <= h:
+                final = min(final, current)
+                maxb = current - 1
+            else:
+                minb = current + 1
+        return final
