@@ -1,0 +1,23 @@
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if not lists:
+            return None
+        
+        temp_list = []
+
+        for arr in lists:
+            current = arr
+            while current:
+                temp_list.append(current.val)
+                current = current.next
+        
+        temp_list.sort()
+        
+        dummy = ListNode(None)
+        tail = dummy
+
+        for items in temp_list:
+            tail.next = ListNode(items)
+            tail = tail.next
+
+        return dummy.next
